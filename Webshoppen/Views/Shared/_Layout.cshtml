@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/CSS/Main.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="headerHolder">
+        <header>
+            <h1>Webshoppen</h1>
+        </header>
+    </div>
+    <div id="navHolder">
+        <nav>
+            <ul>
+                <li>
+                    <a href="/Home/Index">Home</a>  
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div id="mainHolder">
+        <main>
+            @RenderBody()
+        </main>
+    </div>
+    <div id="footerHolder">
+        <footer>
+            <div id="footerButtom">
+                &copy; @DateTime.Now.Year - Webshoppen
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

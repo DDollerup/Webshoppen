@@ -1,0 +1,22 @@
+﻿@model Product
+@{
+    ViewBag.Title = "Product - " + Model.Name;
+    Category productCategory = ViewBag.Category;
+}
+
+<section id="showProduct">
+    <h2>@Model.Name</h2>
+    <p>
+        @Model.Description
+    </p>
+    <h3>
+        @productCategory.Name
+    </h3>
+    <p>
+        @productCategory.Description
+    </p>
+    <span>
+        @Model.Price
+    </span>
+    <img src="~/Content/Images/Products/@Model.Image" alt="@Model.Name" />
+</section>

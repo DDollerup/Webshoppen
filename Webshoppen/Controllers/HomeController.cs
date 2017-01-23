@@ -42,7 +42,31 @@ namespace Webshoppen.Controllers
                 sortedProducts = productFac.GetBy("CategoryID", id);
             }
 
+            TempData["SavedCategoryID"] = id;
             TempData["SortedProducts"] = sortedProducts;
+            return RedirectToAction("Products");
+        }
+
+        [HttpPost]
+        public ActionResult SearchProducts(string searchString)
+        {
+            List<Product> searchResult = new List<Product>();
+
+            searchString = searchString.ToLower();
+
+            if (searchString != null && searchString.Length > 0)
+            {
+                foreach (Product product in productFac.GetAll())
+                {
+                    if (product.Name.ToLower().Contains(searchString) || product.Description.ToLower().Contains(searchString))
+                    {
+                        searchResult.Add(product);
+                    }
+                }
+            }
+
+            TempData["SortedProducts"] = searchResult;
+
             return RedirectToAction("Products");
         }
 

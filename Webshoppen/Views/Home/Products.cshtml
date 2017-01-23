@@ -12,46 +12,70 @@
             <option value="0">Vælg Kategori</option>
             @foreach (Category item in ViewBag.Categories)
             {
-                <option value="@item.ID">@item.Name</option>
+                if (TempData["SavedCategoryID"] == null)
+                {
+                    <option value="@item.ID">@item.Name</option>
+                }
+                else
+                {
+                    int categoryID = (int)TempData["SavedCategoryID"];
+                    if (categoryID == item.ID)
+                    {
+                        <option value="@item.ID" selected="selected">@item.Name</option>
+                    }
+                    else
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                }
             }
         </select>
         <input type="submit" value="Sortér" />
     </form>
     <hr />
     <div>
-        @foreach (Product item in Model)
+        @if (Model.Count > 0)
         {
-            <a href="/Home/ShowProduct/@item.ID">
-                <div class="productItem">
-                    <div>
+            foreach (Product item in Model)
+            {
+                <a href="/Home/ShowProduct/@item.ID">
+                    <div class="productItem">
                         <div>
-                            <img src="~/Content/Images/Products/@item.Image" alt="@item.Name" />
-                        </div>
-                        <div>
-                            <span>
-                                @item.Name
-                            </span>
-                            <p>
-                                @item.Description
-                            </p>
-                            @{
-                                if (item.OnSale == true)
-                                {
-                                    <span class="spanOnSale">
-                                        Tilbud! Før: <span class="spanLineThrough">@item.Price</span> Nu:<span class="spanSalePrice">@item.SalePrice</span>
-                                    </span>
+                            <div>
+                                <img src="~/Content/Images/Products/@item.Image" alt="@item.Name" />
+                            </div>
+                            <div>
+                                <span>
+                                    @item.Name
+                                </span>
+                                <p>
+                                    @item.Description
+                                </p>
+                                @{
+                                    if (item.OnSale == true)
+                                    {
+                                        <span class="spanOnSale">
+                                            Tilbud! Før: <span class="spanLineThrough">@item.Price</span> Nu:<span class="spanSalePrice">@item.SalePrice</span>
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span>
+                                            Pris: @item.Price
+                                        </span>
+                                    }
                                 }
-                                else
-                                {
-                                    <span>
-                                        Pris: @item.Price
-                                    </span>
-                                }
-                            }
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
-                                }
+                </a>
+            }
+        }
+        else
+        {
+            <p>
+                Din søgning gav ingen resultater.
+            </p>                            
+        }
     </div>
 </section>

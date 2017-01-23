@@ -5,18 +5,26 @@
 }
 
 <section id="showProduct">
-    <h2>@Model.Name</h2>
-    <p>
-        @Model.Description
-    </p>
-    <h3>
-        @productCategory.Name
-    </h3>
-    <p>
-        @productCategory.Description
-    </p>
-    <span>
-        @Model.Price
-    </span>
-    <img src="~/Content/Images/Products/@Model.Image" alt="@Model.Name" />
+    <div>
+        <img src="~/Content/Images/Products/@Model.Image" alt="@Model.Name" />
+    </div>
+    <div>
+        <h3>@Model.Name</h3>
+        <span class="spanHeader">
+            DKK @Model.Price,-
+        </span>
+        <span class="spanHeader">Description</span>
+        <p>
+            @Model.Description
+        </p>
+        <span class="spanHeader">Category</span>
+        <h3>
+            @productCategory.Name
+        </h3>
+        <span class="spanHeader">Category Description</span>
+        <p>
+            @productCategory.Description
+        </p>
+
+    </div>
 </section>

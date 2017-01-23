@@ -11,6 +11,12 @@
     <div id="headerHolder">
         <header>
             <h1>Webshoppen</h1>
+            <div id="searchHolder">
+                <form action="/Home/SearchProducts" method="post">
+                    <input type="text" placeholder="Search" name="searchString" />
+                    <input type="submit" value="Search" />
+                </form>
+            </div>
         </header>
     </div>
     <div id="navHolder">
@@ -18,6 +24,9 @@
             <ul>
                 <li>
                     <a href="/Home/Index">Home</a>  
+                </li>
+                <li>
+                    <a href="/Home/Products">Products</a>
                 </li>
             </ul>
         </nav>

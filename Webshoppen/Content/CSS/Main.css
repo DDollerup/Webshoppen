@@ -113,5 +113,29 @@ footer {
     text-decoration: underline;
 }
 
+.spanHeader {
+    display: block;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
 #showProduct {
 }
+
+    #showProduct > div:first-child {
+        width: 40%;
+        float: left;
+    }
+
+        #showProduct > div:first-child img {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+    #showProduct > div:last-child {
+        width: 60%;
+        float: left;
+        text-align: right;
+    }

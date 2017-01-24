@@ -12,10 +12,13 @@ namespace Webshoppen.Controllers
     {
         ProductFactory productFac = new ProductFactory();
         CategoryFactory categoryFac = new CategoryFactory();
+        HomeFactory homeFac = new HomeFactory();
+        ContactFactory contactFac = new ContactFactory();
 
         public ActionResult Index()
         {
-            return View();
+            Home home = homeFac.Get(1);
+            return View(home);
         }
 
         public ActionResult Products()
@@ -77,6 +80,12 @@ namespace Webshoppen.Controllers
             ViewBag.Category = categoryFac.Get(productToView.CategoryID);
 
             return View(productToView);
+        }
+
+        public ActionResult Contact()
+        {
+            Contact contact = contactFac.Get(1);
+            return View(contact);
         }
     }
 }

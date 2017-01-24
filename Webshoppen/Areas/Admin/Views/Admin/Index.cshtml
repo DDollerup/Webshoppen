@@ -1,0 +1,16 @@
+﻿@model Home
+@{
+    ViewBag.Title = "Index";
+}
+<section>
+    <h2>Index</h2>
+    <div>
+        <form action="/Admin/Admin/IndexSubmit" method="post">
+            <input type="hidden" name="ID" value="@Model.ID" />
+            <input type="hidden" name="Image" value="@Model.Image" />
+            <textarea name="PageContent">@Model.PageContent</textarea>
+            <input type="submit" value="Gem" />
+        </form>
+    </div>
+</section>
+

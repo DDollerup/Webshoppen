@@ -1,0 +1,42 @@
+﻿@model List<Product>
+@{
+    ViewBag.Title = "Products";
+}
+<section>
+    <h2>Products</h2>
+    <table>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+        @foreach (Product product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price</td>
+                <td>
+                    <a href="/Home/ShowProduct/@product.ID" target="_blank">View</a>
+                    <a href="/Admin/Admin/EditProduct/@product.ID">Edit</a>
+                    <a href="/Admin/Admin/DeleteProduct/@product.ID" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="4">
+                <a href="#">Create</a>
+            </td>
+        </tr>
+    </table>
+</section>
+

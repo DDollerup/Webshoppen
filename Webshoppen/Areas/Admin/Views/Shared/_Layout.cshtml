@@ -46,5 +46,23 @@
             </div>
         </footer>
     </div>
+
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            font_formats: 'Arial=arial,helvetica,sans-serif;Courier New=courier new,courier,monospace;AkrutiKndPadmini=Akpdmi-n',
+            height: 150,
+            plugins: [
+              'advlist autolink lists link charmap preview hr anchor pagebreak',
+              'searchreplace wordcount visualblocks visualchars code',
+              'insertdatetime media nonbreaking table directionality',
+              'emoticons textcolor colorpicker textpattern'
+            ],
+
+            content_css: '../Content/Email.css'
+        });
+    </script>
+
 </body>
 </html>

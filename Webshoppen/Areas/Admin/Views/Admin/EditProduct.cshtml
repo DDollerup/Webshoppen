@@ -1,0 +1,98 @@
+﻿@model Product
+@{
+    ViewBag.Title = "EditProduct";
+}
+<section>
+    <h2>Edit Product</h2>
+    <form action="/Admin/Admin/EditProductSubmit" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="ID" value="@Model.ID" />
+        <table>
+            <tr>
+                <td>
+                    <label for="Name">Name</label>
+                </td>
+                <td>
+                    <input type="text" name="Name" value="@Model.Name" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Description">Description</label>
+                </td>
+                <td>
+                    <textarea name="Description">@Model.Description</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="ImageFile">Image</label>
+                    <input type="hidden" name="Image" value="@Model.Image" />
+                </td>
+                <td>
+                    <input type="file" name="ImageFile" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Price">Price</label>
+                </td>
+                <td>
+                    <input type="number" step="0.01" name="Price" value="@Model.Price" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="OnSale">On Sale</label>
+                </td>
+                <td>
+                    @if (Model.OnSale == true)
+                    {
+                        @:Yes<input type="radio" value="true" name="OnSale" checked="checked" />
+                        @:No<input type="radio" value="false" name="OnSale" />
+                    }
+                    else
+                    {
+                        @:Yes<input type="radio" value="true" name="OnSale" />
+                        @:No<input type="radio" value="false" name="OnSale" checked="checked" />
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="SalePrice">Sale Price</label>
+                </td>
+                <td>
+                    <input type="number" step="0.01" name="SalePrice" value="@Model.SalePrice" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="CategoryID">Category</label>
+                </td>
+                <td>
+                    <select name="CategoryID">
+                        <option value="0">
+                            Select Category
+                        </option>
+                        @foreach (Category category in ViewBag.Categories)
+                        {
+                            if (Model.CategoryID == category.ID)
+                            {
+                                <option value="@category.ID" selected="selected">@category.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@category.ID">@category.Name</option>
+                            }
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Update" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</section>

@@ -1,0 +1,15 @@
+﻿@model Contact
+@{
+    ViewBag.Title = "Contact";
+}
+<section>
+    <h2>Contact</h2>
+    <div>
+        <form action="/Admin/Admin/ContactSubmit" method="post">
+            <input type="hidden" name="ID" value="@Model.ID" />
+            <input type="hidden" name="Image" value="@Model.Image" />
+            <textarea name="PageContent">@Model.PageContent</textarea>
+            <input type="submit" value="Gem" />
+        </form>
+    </div>
+</section>

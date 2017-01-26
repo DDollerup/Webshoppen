@@ -108,6 +108,7 @@
     <Compile Include="Factories\CategoryFactory.cs" />
     <Compile Include="Factories\ContactFactory.cs" />
     <Compile Include="Factories\HomeFactory.cs" />
+    <Compile Include="Factories\MemberFactory.cs" />
     <Compile Include="Factories\ProductFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -115,6 +116,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Home.cs" />
+    <Compile Include="Models\Member.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -134,6 +136,8 @@
     <Content Include="Areas\Admin\Views\Admin\Contact.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Products.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\EditProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\CreateProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

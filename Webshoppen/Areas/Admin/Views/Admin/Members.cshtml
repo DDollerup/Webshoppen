@@ -1,0 +1,42 @@
+﻿@model List<Member>
+@{
+    ViewBag.Title = "Members";
+}
+<section>
+    <h2>Members</h2>
+    <table>
+        <tr>
+            <th>
+                Username
+            </th>
+            <th>
+                Is Admin
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+        @foreach (Member member in Model)
+        {
+            <tr>
+                <td>
+                    @member.Username
+                </td>
+                <td>
+                    @member.Admin
+                </td>
+                <td>
+                    <a href="#">View</a>
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="2">
+                <a href="/Admin/Admin/CreateMember">Create</a>
+            </td>
+        </tr>
+    </table>
+</section>
+

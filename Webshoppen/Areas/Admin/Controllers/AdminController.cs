@@ -152,5 +152,33 @@ namespace Webshoppen.Areas.Admin.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public ActionResult CreateMember()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateMemberSubmit(Member member)
+        {
+            SHA512 encryptedPassword = new SHA512Managed();
+            encryptedPassword.ComputeHash(Encoding.ASCII.GetBytes(member.Password));
+
+            string hashedPassword = BitConverter.ToString(encryptedPassword.Hash).Replace("-", "");
+
+            member.Password = hashedPassword.ToLower();
+
+            memberFac.Add(member);
+
+            TempData["MSG"] = "A member has been created.";
+
+            return RedirectToAction("Members");
+        }
+
+        public ActionResult Members()
+        {
+            List<Member> allMembers = memberFac.GetAll();
+            return View(allMembers);
+        }
     }
 }

@@ -180,5 +180,26 @@ namespace Webshoppen.Areas.Admin.Controllers
             List<Member> allMembers = memberFac.GetAll();
             return View(allMembers);
         }
+
+        public ActionResult EditMember(int id = 0)
+        {
+            Member memberToEdit = memberFac.Get(id);
+            return View(memberToEdit);
+        }
+
+        [HttpPost]
+        public ActionResult EditMemberSubmit(Member member)
+        {
+            memberFac.Update(member);
+            TempData["MSG"] = "Member has been updated.";
+            return RedirectToAction("Members");
+        }
+
+        public ActionResult DeleteMember(int id = 0)
+        {
+            memberFac.Delete(id);
+            TempData["MSG"] = "Member has been deleted.";
+            return RedirectToAction("Members");
+        }
     }
 }

@@ -1,0 +1,62 @@
+﻿@model Member
+
+@{
+    ViewBag.Title = "Edit Member";
+}
+
+<h2>Edit Member</h2>
+
+
+<form action="/Admin/Admin/EditMemberSubmit" method="post">
+    <input type="hidden" name="ID" value="@Model.ID" />
+    <input type="hidden" name="Password" value="@Model.Password" />
+
+    <table>
+        <tr>
+            <td>
+                Username
+            </td>
+            <td>
+                <input type="text" name="Username" value="@Model.Username" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password
+            </td>
+            <td>
+                <input type="password" name="Password" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email
+            </td>
+            <td>
+                <input type="email" name="Email" value="@Model.Email" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Is Admin
+            </td>
+            <td>
+                @if (Model.Admin == true)
+                {
+                    @:Yes<input type="radio" name="Admin" value="true" checked="checked" />
+                    @:No<input type="radio" name="Admin" value="false" />
+                }
+                else
+                {
+                    @:Yes<input type="radio" name="Admin" value="true" />
+                    @:No<input type="radio" name="Admin" value="false" checked="checked" />
+                }
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Edit Member" />
+            </td>
+        </tr>
+    </table>
+</form>

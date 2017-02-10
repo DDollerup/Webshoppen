@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Members";
 }
+
 <section>
     <h2>Members</h2>
     <table>
@@ -26,9 +27,8 @@
                     @member.Admin
                 </td>
                 <td>
-                    <a href="#">View</a>
-                    <a href="#">Edit</a>
-                    <a href="#">Delete</a>
+                    <a href="/Admin/Admin/EditMember/@member.ID">Edit</a>
+                    <a href="/Admin/Admin/DeleteMember/@member.ID" onclick="return confirm('Are you sure?')">Delete</a>
                 </td>
             </tr>
         }
@@ -39,4 +39,3 @@
         </tr>
     </table>
 </section>
-

@@ -140,6 +140,7 @@
     <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\CreateMember.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Members.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditMember.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
